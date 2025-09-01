@@ -1,0 +1,456 @@
+home - pag
+
+
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Home - Loja Virtual Tech</title>
+<style>
+body { font-family: Arial, sans-serif; margin: 0; padding: 0; background: url("https://images.unsplash.com/photo-1503264116251-35a269479413?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80") no-repeat center center fixed; background-size: cover; color: #fff; }
+header { background: rgba(0,0,0,0.85); padding: 15px; text-align: center; position: sticky; top: 0; z-index: 10; }
+header h1 { margin: 0; color: #00ffcc; font-size: 2rem; }
+nav a { color: #fff; margin: 0 15px; text-decoration: none; font-weight: bold; transition: 0.3s; }
+nav a:hover { color: #00ffcc; }
+main { padding: 30px; background: rgba(0,0,0,0.7); border-radius: 12px; margin: 20px auto; width: 95%; max-width: 1400px; text-align: center; }
+h2 { color: #00ffcc; margin-bottom: 20px; }
+footer { background: rgba(0,0,0,0.85); color: #aaa; text-align: center; padding: 15px; margin-top: 30px; }
+</style>
+</head>
+<body>
+<header>
+  <h1>🌙 Loja Virtual Tech</h1>
+  <nav>
+    <a href="home.html">Home</a>
+    <a href="produtos.html">Produtos</a>
+    <a href="carrinho.html">Carrinho</a>
+    <a href="sobre.html">Sobre</a>
+    <a href="storyboard.html">Storyboard</a>
+  </nav>
+</header>
+
+<main>
+  <h2>Bem-vindo à Loja Virtual Tech</h2>
+  <p>Aqui você encontra os melhores produtos tecnológicos com segurança e qualidade.</p>
+</main>
+
+<footer>
+  <p>© 2025 - Loja Virtual Tech</p>
+</footer>
+</body>
+</html>
+
+
+produtos - pag 
+
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Produtos - Loja Virtual Tech</title>
+<style>
+body { font-family: Arial, sans-serif; margin: 0; padding: 0; background: url("https://images.unsplash.com/photo-1503264116251-35a269479413?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80") no-repeat center center fixed; background-size: cover; color: #fff; }
+header { background: rgba(0,0,0,0.85); padding: 15px; text-align: center; position: sticky; top: 0; z-index: 10; }
+header h1 { margin: 0; color: #00ffcc; font-size: 2rem; }
+nav a { color: #fff; margin: 0 15px; text-decoration: none; font-weight: bold; transition: 0.3s; }
+nav a:hover { color: #00ffcc; }
+main { padding: 30px; background: rgba(0,0,0,0.7); border-radius: 12px; margin: 20px auto; width: 95%; max-width: 1400px; text-align: center; }
+h2 { color: #00ffcc; margin-bottom: 20px; }
+.categoria-btns { margin-bottom: 20px; }
+.categoria-btns button { background: #00ffcc; color: #000; border: none; padding: 8px 12px; margin: 5px; border-radius: 6px; cursor: pointer; font-weight: bold; transition: 0.3s; }
+.categoria-btns button:hover { background: #00cc99; }
+.produtos { display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 15px; justify-items: center; }
+.produto { background: rgba(20,20,20,0.9); padding: 10px; border-radius: 12px; width: 100%; box-shadow: 0 4px 10px rgba(0,0,0,0.6); text-align: center; transition: transform 0.3s; position: relative; }
+.produto:hover { transform: scale(1.05); }
+.produto img { width: 100%; height: 100px; object-fit: cover; border-radius: 6px; margin-bottom: 5px; }
+input[type=number] { width: 50px; padding: 4px; border-radius: 5px; border: none; margin-right: 3px; }
+button.add { margin-top: 5px; padding: 6px; font-size: 0.9rem; }
+#message { margin-top: 20px; font-size: 16px; color: #00ffcc; min-height: 24px; }
+.cart-count { background: #ff3333; color: #fff; border-radius: 50%; padding: 2px 7px; font-size: 0.8rem; position: absolute; top: 5px; right: 5px; }
+footer { background: rgba(0,0,0,0.85); color: #aaa; text-align: center; padding: 15px; margin-top: 30px; }
+</style>
+</head>
+<body>
+<header>
+  <h1>🌙 Loja Virtual Tech</h1>
+  <nav>
+    <a href="home.html">Home</a>
+    <a href="produtos.html">Produtos</a>
+    <a href="carrinho.html">Carrinho</a>
+    <a href="sobre.html">Sobre</a>
+    <a href="storyboard.html">Storyboard</a>
+  </nav>
+</header>
+
+<main>
+  <h2>🛍️ Todos os Produtos</h2>
+  <div class="categoria-btns">
+    <button onclick="showCategory('todos')">Todos</button>
+    <button onclick="showCategory('gamer')">Gamer</button>
+    <button onclick="showCategory('wear')">Techwear</button>
+    <button onclick="showCategory('acessorios')">Acessórios</button>
+  </div>
+
+  <div class="produtos" id="produtos-container"></div>
+  <div id="message"></div>
+</main>
+
+<footer>
+  <p>© 2025 - Loja Virtual Tech</p>
+</footer>
+
+<script>
+const produtos = [
+  {nome:"Headset Gamer", preco:250, img:"https://media.pichau.com.br/media/catalog/product/cache/2f958555330323e505eba7ce930bdf27/t/g/tgt-dvr-rgb011211.jpg", categoria:"gamer"},
+  {nome:"Camiseta Techwear", preco:120, img:"https://m.media-amazon.com/images/I/71K9CbNZPsL._AC_SL1500_.jpg", categoria:"wear"},
+  {nome:"Controle PS5", preco:380, img:"https://http2.mlstatic.com/D_NQ_NP_852060-MLA84850736189_052025-O.webp", categoria:"gamer"},
+  {nome:"Notebook Gamer", preco:5200, img:"https://www.kabum.com.br/_next/image?url=https%3A%2F%2Fimages6.kabum.com.br%2Fprodutos%2Ffotos%2F564916%2Fnotebook-gamer-acer-nitro-v15-intel-core-i5-13420h-8gb-ram-geforce-rtx-3050-ssd-512gb-15-6-fhd-ips-144hz-windows-11-preto-anv15-51-58az_1715197002_gg.jpg&w=640&q=75", categoria:"gamer"},
+  {nome:"Mouse Gamer", preco:150, img:"https://media.pichau.com.br/media/catalog/product/cache/2f958555330323e505eba7ce930bdf27/t/g/tgt-gm25-bl0100002.jpg", categoria:"gamer"},
+  {nome:"Mochila Techwear", preco:300, img:"https://m.media-amazon.com/images/I/71P-GL2FO+L._AC_SX466_.jpg", categoria:"wear"},
+{nome:"Teclado Mecânico", preco:350, img:"https://cdn.awsli.com.br/600x450/344/344383/produto/19802155/63198a073b2b9.jpg", categoria:"acessorios"}
+];
+
+let cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+function showCategory(cat) {
+  const container = document.getElementById("produtos-container");
+  container.innerHTML = "";
+  let filtered = cat==="todos" ? produtos : produtos.filter(p=>p.categoria===cat);
+  filtered.forEach(prod=>{
+    const div = document.createElement("div");
+    div.className = "produto";
+    div.innerHTML = `<img src="${prod.img}" alt="${prod.nome}"><p>${prod.nome}</p><p>R$ ${prod.preco}</p><input type="number" min="1" value="1" id="qtd-${prod.nome}"><button class="add" onclick="addToCart('${prod.nome}')">Adicionar</button>`;
+    container.appendChild(div);
+  });
+}
+
+function addToCart(nome) {
+  const quantidade = parseInt(document.getElementById(`qtd-${nome}`).value);
+  const produto = produtos.find(p=>p.nome===nome);
+  const index = cart.findIndex(p=>p.nome===nome);
+  if(index>-1) cart[index].quantidade += quantidade;
+  else cart.push({nome:produto.nome, preco:produto.preco, quantidade});
+  localStorage.setItem("cart", JSON.stringify(cart));
+  document.getElementById("message").textContent = `${quantidade}x ${nome} adicionado(s) ao carrinho!`;
+}
+
+showCategory("todos");
+</script>
+
+
+
+carrinho - pag
+
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Carrinho - Loja Virtual Tech</title>
+<style>
+body { font-family: Arial, sans-serif; margin: 0; padding: 0; background: url("https://images.unsplash.com/photo-1503264116251-35a269479413?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80") no-repeat center center fixed; background-size: cover; color: #fff; }
+header { background: rgba(0,0,0,0.85); padding: 15px; text-align: center; position: sticky; top: 0; z-index: 10; }
+header h1 { margin: 0; color: #00ffcc; font-size: 2rem; }
+nav a { color: #fff; margin: 0 15px; text-decoration: none; font-weight: bold; transition: 0.3s; }
+nav a:hover { color: #00ffcc; }
+main { padding: 30px; background: rgba(0,0,0,0.7); border-radius: 12px; margin: 20px auto; width: 90%; max-width: 1200px; text-align: center; }
+ul { list-style: none; padding: 0; }
+li { background: rgba(20,20,20,0.9); margin: 10px 0; padding: 15px; border-radius: 12px; display: flex; justify-content: space-between; align-items: center; font-weight: bold; }
+.item-info { display: flex; align-items: center; }
+.item-info span { margin-left: 10px; }
+.item-buttons { display: flex; gap: 5px; }
+button { background: #00ffcc; color: #000; border: none; padding: 5px 10px; cursor: pointer; border-radius: 6px; font-weight: bold; transition: 0.3s; }
+button:hover { background: #00cc99; }
+h3 { margin-top: 20px; }
+footer { background: rgba(0,0,0,0.85); color: #aaa; text-align: center; padding: 15px; margin-top: 30px; }
+</style>
+</head>
+<body>
+<header>
+  <h1>🌙 Loja Virtual Tech</h1>
+  <nav>
+    <a href="home.html">Home</a>
+    <a href="produtos.html">Produtos</a>
+    <a href="carrinho.html">Carrinho</a>
+    <a href="sobre.html">Sobre</a>
+    <a href="storyboard.html">Storyboard</a>
+  </nav>
+</header>
+
+<main>
+  <h2>🛒 Seu Carrinho</h2>
+  <ul id="cart-items"></ul>
+  <h3>Total: R$ <span id="total">0</span></h3>
+  <button onclick="finalizarSelecionados()">Finalizar Selecionados</button>
+  <button onclick="finalizarTodos()">Finalizar Todos</button>
+</main>
+
+<footer>
+  <p>© 2025 - Loja Virtual Tech</p>
+</footer>
+
+<script>
+let cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+function updateCart() {
+  const cartItems = document.getElementById("cart-items");
+  cartItems.innerHTML = "";
+
+  cart.forEach((item, index) => {
+    const li = document.createElement("li");
+
+    const checkbox = document.createElement("input");
+    checkbox.type = "checkbox";
+    checkbox.checked = true;
+    checkbox.onchange = updateTotal;
+
+    const info = document.createElement("div");
+    info.className = "item-info";
+    info.appendChild(checkbox);
+    const text = document.createElement("span");
+    text.textContent = `${item.quantidade}x ${item.nome} - R$ ${item.preco * item.quantidade}`;
+    info.appendChild(text);
+
+    const btns = document.createElement("div");
+    btns.className = "item-buttons";
+
+    const removeBtn = document.createElement("button");
+    removeBtn.textContent = "Remover";
+    removeBtn.onclick = () => {
+      cart.splice(index, 1);
+      localStorage.setItem("cart", JSON.stringify(cart));
+      updateCart();
+    };
+    btns.appendChild(removeBtn);
+
+    const buyItemBtn = document.createElement("button");
+    buyItemBtn.textContent = "Finalizar Item";
+    buyItemBtn.onclick = () => {
+      localStorage.setItem("checkoutItem", JSON.stringify([item]));
+      localStorage.removeItem("checkoutCart");
+      window.location.href = "finalizacaodecompra.html";
+    };
+    btns.appendChild(buyItemBtn);
+
+    li.appendChild(info);
+    li.appendChild(btns);
+    cartItems.appendChild(li);
+  });
+
+  updateTotal();
+  localStorage.setItem("checkoutCart", JSON.stringify(cart));
+}
+
+function updateTotal() {
+  const checkboxes = document.querySelectorAll("#cart-items li .item-info input");
+  let total = 0;
+  checkboxes.forEach((cb, index) => {
+    if (cb.checked) total += cart[index].preco * cart[index].quantidade;
+  });
+  document.getElementById("total").textContent = total;
+}
+
+function finalizarSelecionados() {
+  const checkboxes = document.querySelectorAll("#cart-items li .item-info input");
+  const selectedItems = [];
+  checkboxes.forEach((cb, index) => {
+    if (cb.checked) selectedItems.push(cart[index]);
+  });
+  if (selectedItems.length === 0) {
+    alert("Selecione pelo menos um item para finalizar.");
+    return;
+  }
+  localStorage.setItem("checkoutItem", JSON.stringify(selectedItems));
+  localStorage.removeItem("checkoutCart");
+  window.location.href = "finalizacaodecompra.html";
+}
+
+function finalizarTodos() {
+  localStorage.setItem("checkoutCart", JSON.stringify(cart));
+  localStorage.removeItem("checkoutItem");
+  window.location.href = "finalizacaodecompra.html";
+}
+
+updateCart();
+</script>
+</body>
+</html>
+
+
+
+sobre - pag
+
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sobre - Loja Virtual Tech</title>
+<style>
+body { font-family: Arial, sans-serif; margin: 0; padding: 0; background: url("https://images.unsplash.com/photo-1503264116251-35a269479413?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80") no-repeat center center fixed; background-size: cover; color: #fff; }
+header { background: rgba(0,0,0,0.85); padding: 15px; text-align: center; position: sticky; top: 0; z-index: 10; }
+header h1 { margin: 0; color: #00ffcc; font-size: 2rem; }
+nav a { color: #fff; margin: 0 15px; text-decoration: none; font-weight: bold; transition: 0.3s; }
+nav a:hover { color: #00ffcc; }
+main { padding: 30px; background: rgba(0,0,0,0.7); border-radius: 12px; margin: 20px auto; width: 90%; max-width: 1200px; }
+h2 { text-align: center; color: #00ffcc; }
+.section { margin: 20px 0; text-align: center; }
+img { border-radius: 12px; max-width: 400px; width: 90%; margin-top: 10px; }
+footer { background: rgba(0,0,0,0.85); color: #aaa; text-align: center; padding: 15px; margin-top: 30px; }
+</style>
+</head>
+<body>
+<header>
+  <h1>🌙 Loja Virtual Tech</h1>
+  <nav>
+    <a href="home.html">Home</a>
+    <a href="produtos.html">Produtos</a>
+    <a href="carrinho.html">Carrinho</a>
+    <a href="sobre.html">Sobre</a>
+    <a href="storyboard.html">Storyboard</a>
+  </nav>
+</header>
+
+<main>
+  <h2>Sobre a Loja Virtual Tech</h2>
+  <div class="section">
+    <h3>História</h3>
+    <p>A Loja Virtual Tech nasceu em 2020 com a missão de trazer tecnologia de ponta para todos os clientes, com produtos de qualidade e atendimento diferenciado.</p>
+  </div>
+  <div class="section">
+    <h3>Missão</h3>
+    <p>Oferecer tecnologia inovadora com excelência, garantindo satisfação e confiança aos clientes.</p>
+  </div>
+  <div class="section">
+    <h3>Visão</h3>
+    <p>Ser referência em lojas virtuais de tecnologia no Brasil, com crescimento sustentável e inovação constante.</p>
+  </div>
+  <div class="section">
+    <h3>Valores</h3>
+    <p>Qualidade, transparência, inovação, responsabilidade e foco no cliente.</p>
+  </div>
+  <div class="section">
+    <h3>Equipe</h3>
+    <p>Conheça nossa equipe de profissionais:</p>
+    <img src="https://images.unsplash.com/photo-1603415526960-f55c1ec9c5f9?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Equipe Loja Virtual Tech">
+  </div>
+</main>
+
+<footer>
+  <p>© 2025 - Loja Virtual Tech</p>
+</footer>
+</body>
+</html>
+
+
+
+
+story board - pag
+
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Storyboard - Loja Virtual Tech</title>
+<style>
+body { font-family: Arial, sans-serif; margin: 0; background: #111; color: #fff; }
+header { background: rgba(0,0,0,0.85); padding: 15px; text-align: center; position: sticky; top: 0; z-index: 10; }
+header h1 { margin: 0; color: #00ffcc; font-size: 2rem; }
+nav a { color: #fff; margin: 0 15px; text-decoration: none; font-weight: bold; transition: 0.3s; }
+nav a:hover { color: #00ffcc; }
+
+.carousel-container { max-width: 900px; margin: 40px auto; position: relative; text-align: center; }
+.slide { display: none; border-radius: 12px; overflow: hidden; position: relative; }
+.slide img { width: 100%; border-radius: 12px; }
+.caption { position: absolute; bottom: 10px; left: 50%; transform: translateX(-50%); background: rgba(0,0,0,0.6); padding: 10px 20px; border-radius: 8px; font-size: 1rem; color: #00ffcc; }
+.prev, .next { cursor: pointer; position: absolute; top: 50%; width: auto; padding: 16px; color: #00ffcc; font-weight: bold; font-size: 1.5rem; user-select: none; border-radius: 50%; background: rgba(0,0,0,0.6); transform: translateY(-50%); }
+.prev { left: 10px; }
+.next { right: 10px; }
+.dots { text-align: center; margin-top: 20px; }
+.dot { cursor: pointer; height: 12px; width: 12px; margin: 0 4px; background-color: #555; border-radius: 50%; display: inline-block; transition: 0.3s; }
+.active, .dot:hover { background-color: #00ffcc; }
+</style>
+</head>
+<body>
+<header>
+  <h1>🌙 Loja Virtual Tech</h1>
+  <nav>
+    <a href="home.html">Home</a>
+    <a href="produtos.html">Produtos</a>
+    <a href="carrinho.html">Carrinho</a>
+    <a href="sobre.html">Sobre</a>
+    <a href="storyboard.html">Storyboard</a>
+  </nav>
+</header>
+
+<div class="carousel-container">
+  <div class="slide">
+    <img src="home.png" alt="Tela de login/cadastro">
+    <div class="caption">Tela de login e cadastro do usuário</div>
+  </div>
+  <div class="slide">
+    <img src="produtos.png" alt="Página de produtos">
+    <div class="caption">Página mostrando todos os produtos disponíveis</div>
+  </div>
+  <div class="slide">
+    <img src="carrinho.png" alt="Carrinho de compras">
+    <div class="caption">Carrinho de compras com opção de finalizar itens individualmente</div>
+  </div>
+  <div class="slide">
+    <img src="sobre.png" alt="Sobre a loja">
+    <div class="caption">Página "Sobre", com história, missão, valores e equipe</div>
+  </div>
+  <div class="slide">
+    <img src="storyboard.png" alt="Storyboard da loja">
+    <div class="caption">Storyboard mostrando o fluxo de páginas da loja</div>
+  </div>
+  <div class="slide">
+    <img src="finalizar.png" alt="Finalização de compra">
+    <div class="caption">Página de finalização de compra com endereço e pagamento</div>
+  </div>
+
+  <a class="prev" onclick="changeSlide(-1)">❮</a>
+  <a class="next" onclick="changeSlide(1)">❯</a>
+
+  <div class="dots">
+    <span class="dot" onclick="currentSlide(1)"></span>
+    <span class="dot" onclick="currentSlide(2)"></span>
+    <span class="dot" onclick="currentSlide(3)"></span>
+    <span class="dot" onclick="currentSlide(4)"></span>
+    <span class="dot" onclick="currentSlide(5)"></span>
+    <span class="dot" onclick="currentSlide(6)"></span>
+  </div>
+</div>
+
+<script>
+let slideIndex = 1;
+showSlide(slideIndex);
+
+function changeSlide(n) { showSlide(slideIndex += n); }
+function currentSlide(n) { showSlide(slideIndex = n); }
+
+function showSlide(n) {
+  let slides = document.getElementsByClassName("slide");
+  let dots = document.getElementsByClassName("dot");
+  if (n > slides.length) { slideIndex = 1; }
+  if (n < 1) { slideIndex = slides.length; }
+  for (let i = 0; i < slides.length; i++) { slides[i].style.display = "none"; }
+  for (let i = 0; i < dots.length; i++) { dots[i].className = dots[i].className.replace(" active", ""); }
+  slides[slideIndex-1].style.display = "block";
+  dots[slideIndex-1].className += " active";
+}
+</script>
+</body>
+</html>
+
+
+
+
